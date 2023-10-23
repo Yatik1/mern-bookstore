@@ -9,6 +9,9 @@ const mongoUrl = 'mongodb+srv://yatiksrivastava1:AqtTkN5gOOz9Tcjw@cluster0.6nobb
 
 const app = express();
 
+// Middleware for parsing request body 
+app.use(express.json())
+
 app.get('/' , (req,res) => {
     // console.log(req);
     return res.status(234).send("Welcome to HTTPs Request ! ")
@@ -31,10 +34,11 @@ app.post('/books' , async (req,res)=> {
        };
 
        const book = await Book.create(newBook)
+       return res.status(201).send(book)
 
      } catch (error) {
          console.log(error.message);
-         response.status(500).send({message : error.message})
+         res.status(500).send({message : error.message})
      }
 })
 
