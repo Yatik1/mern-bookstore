@@ -3,9 +3,12 @@ const mongoose  = require("mongoose");
 
 const booksRoute = require("./routes/booksRoute")
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 const PORT = 5555;
 
-const mongoUrl = 'mongodb+srv://yatiksrivastava1:AqtTkN5gOOz9Tcjw@cluster0.6nobb31.mongodb.net/?retryWrites=true&w=majority'
+// const mongoUrl = 'mongodb+srv://yatiksrivastava1:AqtTkN5gOOz9Tcjw@cluster0.6nobb31.mongodb.net/?retryWrites=true&w=majority'
 
 const app = express();
 
@@ -20,7 +23,7 @@ app.get('/' , (req,res) => {
 
 app.use("/books" , booksRoute)
 
-mongoose.connect(mongoUrl)
+mongoose.connect(process.env.URI)
     .then(() => {
      console.log("database is connected !");
      app.listen(PORT , () => {
