@@ -8,7 +8,6 @@ dotenv.config();
 
 const PORT = 5555;
 
-// const mongoUrl = 'mongodb+srv://yatiksrivastava1:AqtTkN5gOOz9Tcjw@cluster0.6nobb31.mongodb.net/?retryWrites=true&w=majority'
 
 const app = express();
 
@@ -25,7 +24,7 @@ app.use("/books" , booksRoute)
 
 mongoose.connect(process.env.URI)
     .then(() => {
-     console.log("database is connected !");
+     console.log("database is connected !")
      app.listen(PORT , () => {
     console.log(`App is listening to the port : ${PORT}`)  
 })
