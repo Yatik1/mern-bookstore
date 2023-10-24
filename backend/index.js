@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose  = require("mongoose");
-
+const cors = require("cors");
 const booksRoute = require("./routes/booksRoute")
 
 const dotenv = require('dotenv');
@@ -13,6 +13,12 @@ const app = express();
 
 // Middleware for parsing request body 
 app.use(express.json())
+
+//Middleware for handling CORS policy 
+//ALlow all origin with default of CORS (*)
+app.use(cors());
+
+
 
 
 app.get('/' , (req,res) => {
