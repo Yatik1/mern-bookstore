@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-
+import './index.css'
 import Home from "../pages/Home"
 import CreateBook from "../pages/CreateBook"
 import ShowBook from "../pages/ShowBook"
