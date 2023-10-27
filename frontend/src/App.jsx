@@ -6,9 +6,12 @@ import CreateBook from "../pages/CreateBook"
 import ShowBook from "../pages/ShowBook"
 import EditBook from "../pages/DeleteBook"
 import DeleteBook from '../pages/DeleteBook'
+import Test from '../components/Test'
 
 const App = () => {
   return (
+    <>
+  
   <Routes>
 
     <Route path='/' element={<Home />} />
@@ -16,8 +19,10 @@ const App = () => {
     <Route path='/books/details/:id' element={<ShowBook />} />
     <Route path='/books/edit/:id' element={<EditBook />} />
     <Route path='/books/delete/:id' element={<DeleteBook />} />
-    
+    <Route path='/test' element={<Test />} />
+
   </Routes>
+  </>
   )
 }
 
