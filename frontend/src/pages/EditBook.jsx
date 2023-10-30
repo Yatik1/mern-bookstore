@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Spinner from '../components/Spinner'
 import BackButton from '../components/BackButton'
+import { useSnackbar } from 'notistack'
 
 const EditBook = () => {
 
@@ -13,6 +14,7 @@ const EditBook = () => {
   
   const navigate = useNavigate();
   const {id} = useParams();
+  const {enqueueSnackbar} = useSnackbar();
 
   useEffect(() => {
        setLoading(true);
@@ -42,11 +44,13 @@ const EditBook = () => {
             .then(() => {
                setLoading(false);
               //  alert('Edit successful !')
+              enqueueSnackbar('Book Edited Successfullt' , {variant:'success'})
                navigate('/')
             })
             .catch((error) => {
                 setLoading(false);
-                alert("An Error has occured ! ")
+                // alert("An Error has occured ! ")
+                enqueueSnackbar('Error' , {variant: 'error'})
                 console.log(error);
             })
      }
